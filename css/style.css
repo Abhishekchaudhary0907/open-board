@@ -1,0 +1,116 @@
+.toolbar{
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 90vw;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.tool{
+    /* border:1px solid red; */
+}
+.tool-img{
+    height: 50px;
+}
+.color-container{
+    border: 1px solid gray;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: space-evenly;
+    width:150px;
+    height:50px;
+    display: flex;
+}
+.color{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    border: 1px solid green;
+}
+.red{
+    background-color: lightpink;
+}
+.green{
+    background-color: lightgreen;
+}
+.blue{
+    background-color: lightblue;
+}
+.size-box{
+    border: 1px solid gray;
+    width:150px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-evenly;
+    /* display:flex; */
+    display:none;
+}
+
+.sizes{
+    border-radius: 50%;
+    background-color: lightsteelblue;
+}
+.size1{
+    height: 8px;
+    width: 8px;
+}
+.size2{
+    height: 12px;
+    width: 12px;
+}
+.size3{
+    height: 16px;
+    width: 16px;
+}
+.size4{
+    height: 20px;
+    width: 20px;
+}
+
+
+
+
+/* this is stickey code */
+
+
+        .stickey{
+            
+            width: 200px;
+            height: 100px;
+        }
+        .header{
+            
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            width: 200px;
+            height:30px;
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+        .close{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 5px;
+        }
+        .min{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: green;
+            margin-right: 5px;
+        }
+        .textarea{
+            width: 195px;
+            height: 63px;
+            outline: none;
+            border: none;
+            border-top: 1px solid gray;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+       
+    

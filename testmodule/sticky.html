@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stickey example</title>
+    <style>
+        .stickey{
+            
+            width: 200px;
+            height: 100px;
+        }
+        .header{
+            
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            width: 200px;
+            height:30px;
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+        .close{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 5px;
+        }
+        .min{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: green;
+            margin-right: 5px;
+        }
+        .textarea{
+            width: 195px;
+            height: 63px;
+            outline: none;
+            border: none;
+            border-top: 1px solid gray;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        button{
+           
+            background-color: purple;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="stickey-note">button</button>
+    <!-- <div class="stickey">
+        <div class="header">
+            <div class="min"></div>
+            <div class="close"></div>
+        </div>
+        <textarea>
+        </textarea>
+    </div> -->
+    <script>
+        let btn = document.querySelector("#stickey-note");
+       
+        btn.addEventListener("click", function(e){
+           
+            let body = document.querySelector("body");
+            let stickey=document.createElement("div");
+            stickey.setAttribute("class","stickey");
+            stickey.innerHTML=`<div class="header">
+            <div class="min"></div>
+            <div class="close"></div>
+        </div>
+        <textarea class="textarea">
+        </textarea>`;
+        body.appendChild(stickey);
+        let isClosed=true;
+        let min = stickey.querySelector(".min");
+        let close=stickey.querySelector(".close");
+        let textarea = stickey.querySelector(".textarea");
+        // this  is for minimize
+        min.addEventListener("click", function(e){
+            if(isClosed==true){
+
+                textarea.style.display="none";
+            }else{
+                textarea.style.display="block";
+            }
+            isClosed=!isClosed;
+        });
+
+        // this is for closing
+        close.addEventListener("click", function(e){
+            stickey.remove();
+        });
+       
+
+        });
+    </script>
+</body>
+</html>

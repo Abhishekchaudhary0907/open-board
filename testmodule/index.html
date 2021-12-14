@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            margin: 0px;
+        }
+        .fas{
+            font-size: 2rem;
+            margin-right:30px;
+            margin-left: 30px;
+          
+        }
+
+        .red{
+            width:35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: lightpink;
+        }
+        .green{
+            width:35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: lightgreen;
+        }
+        .blue{
+            width:35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: lightskyblue;
+        }
+        .icon-pallate{
+            width:700px;
+            background-color: lightgrey;
+            display: flex;
+            margin-left: 50px;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+    <title>pepnote</title>
+</head>
+<body>
+    <!-- <h1>canvas example</h1> -->
+    <div class="icon-pallate">
+        
+        <i class="fas fa-square"></i>
+        <i class="fas fa-grip-lines-vertical">line</i>
+        <i class="fa fa-pencil"></i>
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
+   
+    <canvas></canvas>
+
+</body>
+    <!-- <script>
+
+        let pencilTool = document.querySelector(".fa-pencil");
+        let rectTool = document.querySelector(".fa-square");
+        let lineTool = document.querySelector(".fa-grip-lines-vertical");
+
+        let cTool = "rectangle";
+
+        pencilTool.addEventListener("click", function(){
+            cTool = "pencil";
+        })
+
+        rectTool.addEventListener("click", function(){
+           cTool = "rectangle";
+        })
+
+        lineTool.addEventListener("click", function(){
+            cTool = "line";
+        })
+
+        let redPick = document.querySelector(".red");
+        let greenPick = document.querySelector(".green");
+        let bluePick = document.querySelector(".blue");
+
+        let body = document.querySelector("body");
+        let canvasBoard = document.querySelector("canvas");
+        // default width and height of canvas is smaller so lets change
+        canvasBoard.height=window.innerHeight;
+        canvasBoard.width=window.innerWidth;
+
+        // this line give you tool to draw on canvas
+        let tool = canvasBoard.getContext("2d");
+
+        redPick.addEventListener("click", function(){
+      
+            tool.strokeStyle = "pink";
+  })
+
+  greenPick.addEventListener("click", function(){
+     
+    tool.strokeStyle = "green";
+
+  })
+
+  bluePick.addEventListener("click", function(){
+    
+    tool.strokeStyle = "blue";
+  })
+        // rectangle build
+
+        // tool.fillStyle="green";
+        // tool.fillRect(0,0,200,100);// x-axis y-axis width height
+
+        // tool.strokeStyle = "red";
+        // tool.strokeRect(10,10,200,100);
+
+        // tool.fillStyle = "blue";
+        // tool.fillRect(20,30,100,200);
+
+        // tool.fillStyle = "black";
+        // tool.fillRect(30,40,200,200);
+
+        let iX,iY,fX,fY;
+        console.log(canvasBoard.getBoundingClientRect());
+        let boardTop = canvasBoard.getBoundingClientRect().top;
+
+        body.addEventListener("mousedown", function(e){
+            // alert("mouse is down");
+            // let xPos = e.clientX;
+            // let yPos = e.clientY;
+            // console.log("starting point "+xPos+" "+yPos);
+            iX=e.clientX;
+            iY=e.clientY - boardTop;
+        })
+        
+        body.addEventListener("mouseup", function(e){
+            // let xPos = e.clientX;
+            // let yPos = e.clientY;
+            // console.log("closing point "+xPos+" "+yPos);
+            fX=e.clientX;
+            fY=e.clientY - boardTop;
+
+            if(cTool=="rectangle"){
+               
+                tool.strokeRect(iX,iY,fX-iX,fY-iY);
+
+            }else{
+                tool.beginPath();
+                tool.moveTo(iX,iY);
+                tool.lineTo(fX,fY);
+                tool.stroke();
+            }
+
+            
+        })
+    </script> -->
+    <script>
+          let pencilTool = document.querySelector(".fa-pencil");
+         let cTool = "";     
+         pencilTool.addEventListener("click", function(){
+            cTool = "pencil";
+        })
+
+        let body = document.querySelector("body");
+        let canvasBoard = document.querySelector("canvas");
+        // default width and height of canvas is smaller so lets change
+        canvasBoard.height=window.innerHeight;
+        canvasBoard.width=window.innerWidth;
+
+        // this line give you tool to draw on canvas
+        let tool = canvasBoard.getContext("2d");
+
+        
+        let iX,iY,fX,fY;
+        console.log(canvasBoard.getBoundingClientRect());
+        let boardTop = canvasBoard.getBoundingClientRect().top;
+
+        let drawingMode = false;
+        body.addEventListener("mousedown", function(e){
+            // alert("mouse is down");
+            // let xPos = e.clientX;
+            // let yPos = e.clientY;
+            // console.log("starting point "+xPos+" "+yPos);
+            drawingMode = true;
+            iX=e.clientX;
+            iY=e.clientY - boardTop;
+            tool.beginPath();
+        })
+
+        body.addEventListener("mousemove", function(e){
+            if(drawingMode==false){
+                return;
+            }
+            fX=e.clientX;
+            fY=e.clientY-boardTop;
+
+            tool.moveTo(iX,iY);
+            tool.lineTo(fX,fY);
+            tool.stroke();
+            iX=fX;
+            iY=fY;
+
+        })
+
+        body.addEventListener("mouseup", function(e){
+            drawingMode=false;
+        })
+    </script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .size-box{
+            border: 1px solid gray;
+            width:200px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .sizes{
+            border-radius: 50%;
+            background-color: lightsteelblue;
+        }
+        .size1{
+            height: 8px;
+            width: 8px;
+        }
+        .size2{
+            height: 12px;
+            width: 12px;
+        }
+        .size3{
+            height: 16px;
+            width: 16px;
+        }
+        .size4{
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+    <title>Options </title>
+</head>
+<body>
+    <div class="size-box">
+        <div class="size1 sizes"></div>
+        <div class="size2 sizes"></div>
+        <div class="size3 sizes"></div>
+        <div class="size4 sizes"></div>
+    </div>
+    <script>
+        let sizebox = document.querySelector(".size-box");
+        sizebox.addEventListener("click", function(e){
+            // console.log(e.target);// specifc wala dega
+            // console.log(e.currentTarget);// over all parent sahit dega
+            let sizeoptions=["size1","size2","size3","size4"];
+            let allClasses=e.target.classList;
+            let firstClass = allClasses[0];
+            console.log(firstClass);
+
+            let isInclude = sizeoptions.includes(firstClass);
+            
+            if(isInclude){
+                if(firstClass=="size1"){
+
+                }else if(firstClass=="size2"){
+
+                }else if(firstClass=="size3"){
+                    
+                }else if(firstClass=="size4"){
+                    
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
